@@ -1,0 +1,31 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Monolítico</title>
+</head>
+<body>
+    <h1>Bem-vindo ao meu App Monolítico</h1>
+    <p>Esta é uma aplicação simples usando Node.js e Express.</p>
+    <button id="helloBtn">Clique para dizer Olá</button>
+
+    <script>
+        document.getElementById('helloBtn').addEventListener('click', async () => {
+    // Quando o botão com o ID 'helloBtn' for clicado, essa função será executada
+
+    const response = await fetch('/api/say-hello');
+    // Envia uma requisição para a rota '/api/say-hello' do servidor
+    // Espera a resposta da API usando "await" (requisição assíncrona)
+
+    const data = await response.json();
+    // Converte a resposta da API em formato JSON (que contém a mensagem "Hello, World!")
+
+    alert(data.message);
+    // Exibe a mensagem recebida em um alerta na página (mostrando "Hello, World!")
+});
+
+    </script>
+</body>
+</html>
